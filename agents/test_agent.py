@@ -1,6 +1,15 @@
-from base_agent import BaseAgent
+from agents.product_research_agent import ProductResearchAgent
 
 
-agent = BaseAgent("Test Agent")
+agent = ProductResearchAgent()
 
-print(agent.name)
+
+result = agent.run(
+    {
+        "product": "motorcycle helmet",
+        "market": "USA"
+    }
+)
+
+
+print(result)
