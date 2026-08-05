@@ -1,27 +1,26 @@
 from .base_agent import BaseAgent
 
+from llm.deepseek_client import DeepSeekClient
+
+from prompts.prompt_loader import load_prompt
+
 
 class ProductResearchAgent(BaseAgent):
     """
     AI Agent for product opportunity research.
     """
 
+
     def __init__(self):
+
         super().__init__(
             "Product Research Agent"
         )
 
+        self.llm = DeepSeekClient()
+
 
     def run(self, input_data):
-        """
-        Analyze product opportunity.
-
-        Args:
-            input_data (dict)
-
-        Returns:
-            dict
-        """
 
         product = input_data.get(
             "product",
@@ -33,15 +32,26 @@ class ProductResearchAgent(BaseAgent):
             "USA"
         )
 
+
+        template = load_prompt(
+            "product_research_prompt.txt"
+        )
+
+
+        prompt = template.format(
+            product=product,
+            market=market
+        )
+
+
+        analysis = self.llm.chat(
+            prompt
+        )
+
+
         return {
             "agent": self.name,
             "product": product,
             "market": market,
-            "score": 85,
-            "recommendation": "BUY",
-            "reason": (
-                "High demand potential "
-                "based on market signals"
-            )
+            "analysis": analysis
         }
-    '[.  sy6]'

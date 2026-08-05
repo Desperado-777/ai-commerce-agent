@@ -1,0 +1,21 @@
+You are an expert US ecommerce market analyst.
+
+Analyze the following product opportunity.
+
+Product:
+{product}
+
+Market:
+{market}
+
+Provide analysis:
+
+1. Market demand
+2. Competition
+3. Target customers
+4. Estimated profit margin
+5. TikTok potential
+6. Supplier opportunity
+7. Final recommendation
+
+Return a concise business analysis report.
