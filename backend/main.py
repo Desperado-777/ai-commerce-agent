@@ -1,23 +1,17 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from agents.product_research_agent import ProductResearchAgent
+from agents.orchestrator import CommerceOrchestrator
 
 
 app = FastAPI(
-    title="AI Commerce Agent API",
-    version="0.2"
+    title="AI Commerce Agent API"
 )
-
-
-agent = ProductResearchAgent()
-
 
 
 class ProductRequest(BaseModel):
 
     product: str
-
     market: str = "USA"
 
 
@@ -32,16 +26,20 @@ def home():
 
 
 
-@app.post("/research")
-def research(
+@app.post("/analyze")
+def analyze(
     request: ProductRequest
 ):
 
-    result = agent.run(
+    orchestrator = EcommerceOrchestrator()
+
+
+    result = orchestrator.run(
         {
             "product": request.product,
             "market": request.market
         }
     )
+
 
     return result
