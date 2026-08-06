@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from agents.orchestrator import CommerceOrchestrator
+from agents.orchestrator import EcommerceOrchestrator
 
 
 app = FastAPI(

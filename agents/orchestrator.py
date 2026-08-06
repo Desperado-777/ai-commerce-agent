@@ -3,7 +3,7 @@ from .supplier_analysis_agent import SupplierAnalysisAgent
 from .trend_analysis_agent import TrendAnalysisAgent
 
 
-class CommerceOrchestrator:
+class EcommerceOrchestrator:
     """
     Coordinate multiple AI agents.
     """

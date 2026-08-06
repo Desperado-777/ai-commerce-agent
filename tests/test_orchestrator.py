@@ -1,7 +1,7 @@
-from agents.orchestrator import CommerceOrchestrator
+from agents.orchestrator import EcommerceOrchestrator
 
 
-system = CommerceOrchestrator()
+system = EcommerceOrchestrator()
 
 
 result = system.analyze(
